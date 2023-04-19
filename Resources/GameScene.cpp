@@ -8,7 +8,6 @@ GameScene::GameScene() {}
 //デストラクタ
 GameScene::~GameScene() {
 	delete spriteBG_; // BG
-	delete modelStage_;//ステージ
 }
 
 
@@ -21,16 +20,7 @@ void GameScene::Initialize() {
 	//BG(2Dスプライト)
 	textureHandleBG_ = TextureManager::Load("bg.jpg");
 	spriteBG_ = Sprite::Create(textureHandleBG_, {0, 0});
-	//ビュープロジェクションの初期化
-	viewProjection_.Initialize();
-	//ステージ
-	textureHandleStage_ = TextureManager::Load("stage.jpg");
-	modelStage_ = Model::Create();
-	worldTransformStage_.Initialize();
-	//ビュープロジェクションの初期化
-	viewProjection_.translation_.y = 1;
-	viewProjection_.translation_.z = -6;
-	viewProjection_.Initialize();
+
 }
 //更新
 void GameScene::Update() {}
@@ -46,8 +36,6 @@ void GameScene::Draw() {
 	Sprite::PreDraw(commandList);
 	//背景
 	spriteBG_->Draw();
-	//ステージ
-	modelStage_->Draw(worldTransformStage_, viewProjection_, textureHandleStage_);
 	/// <summary>
 	/// ここに背景スプライトの描画処理を追加できる
 	/// </summary>

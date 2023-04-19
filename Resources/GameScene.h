@@ -48,12 +48,6 @@ private: // メンバ変数
 	//BG(スプライト)
 	uint32_t textureHandleBG_ = 0;
 	Sprite* spriteBG_ = nullptr;
-	//ビュープロジェクション
-	ViewProjection viewProjection_;
-	//ステージ
-	uint32_t textureHandleStage_ = 0;
-	Model* modelStage_ = nullptr;
-	WorldTransform worldTransformStage_;
 
 	/// <summary>
 	/// ゲームシーン用
